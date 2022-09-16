@@ -7,16 +7,11 @@
     background-color: rgba(47, 48, 58, 0.4);
     opacity: 1;
     transition: opacity 500ms var(--main-timing-function);
-    
-}
-.backdrop.is-hidden {
-    opacity: 0;
-    visibility: 0;
-    pointer-events: none;
-    
-}
-.backdrop.is-hidden .modal {
-    transform: translate(-50%, -50%) scale(0);
+        &.is-hidden {
+            opacity: 0;
+            visibility: 0;
+            pointer-events: none;
+        }
     
 }
 .modal {
@@ -31,7 +26,10 @@
     border-radius: 4px;
     transform: translate(-50%, -50%) scale(1);
     transition: transform 500ms var(--main-timing-function);
-
+        .backdrop.is-hidden & {
+            transform: translate(-50%, -50%) scale(0);
+            
+        }
 }
 .modal-button {
     position: absolute;
@@ -54,7 +52,6 @@
     fill: var(--accent-color-blue);
 }
 .form-modal {
-    /* position: relative; */
     padding: 40px;
 }
 .title-modal {
@@ -66,7 +63,6 @@
 }
 .contact-wrapper {
     position: relative;
-    /* width: 100%; */
     margin-bottom: 28px;
 }
 .icon-contact-wrapper {
@@ -75,6 +71,11 @@
     left: 12px;
     transform: translateY(-50%);
     transition: fill 250ms var(--main-timing-function);
+
+        .input-modal:hover ~ &,
+        .input-modal:focus ~ & {
+        fill: var(--accent-color-blue);
+    }
 }
 .input-modal {
     display: block;
@@ -85,19 +86,17 @@
     border-radius: 4px;
     cursor: pointer;
     transition: border 250ms var(--main-timing-function);
+
+        &:hover,
+        &:focus {
+            outline: none;
+            border: 1px solid var(--accent-color-blue);
+        
+    }
 }
-.input-modal:hover,
-.input-modal:focus {
-    outline: none;
-    border: 1px solid var(--accent-color-blue);
-    
-}
-.input-modal:hover ~ .icon-contact-wrapper,
-.input-modal:focus ~ .icon-contact-wrapper {
-    fill: var(--accent-color-blue);
-}
+
+
 .label-modal {
-    /* display: block; */
     position: absolute;
     top: -18px;
     left: 0;
@@ -106,13 +105,13 @@
     line-height: 1.17;
     letter-spacing: 0.01em;
     color: var(--text-color);
-    
+        .checkbox-modal + & {
+            line-height: 1.71;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+        }
 }
-.checkbox-modal + .label-modal {
-    line-height: 1.71;
-    letter-spacing: 0.03em;
-    cursor: pointer;
-}
+
 .comment-wrapper {
     position: relative;
     margin-bottom: 20px;
@@ -126,12 +125,13 @@
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
     transition: border 250ms var(--main-timing-function);
+        &:hover,
+        &:focus {
+            outline: none;
+            border: 1px solid var(--accent-color-blue);
+        }
 }
-.modal-comment:hover,
-.modal-comment:focus {
-    outline: none;
-    border: 1px solid var(--accent-color-blue);
-}
+
 
 .checkbox-wrapper {
     display: flex;
@@ -149,32 +149,28 @@
     line-height: 1.71;
     letter-spacing: 0.03em;
     color: var(--text-color);
+        &::before {
+            display: inline-block;
+            content: '';
+            width: 16px;
+            height: 15px;
+            margin-right: 8px;
+            border: 2px solid var(--main-black-color);
+            border-radius: 15%;
+        
+            .checkbox-modal:checked + & {
+                background-image: url('../images/icons/icon-check.svg');
+                background-size: cover;          
+                border: var(--accent-color-blue);
+            }
+            .checkbox-modal:focus + & {        
+                border: 1px solid #212121;
+            }
+        }
 }
-.checkbox-label::before {
-    display: inline-block;
-    content: '';
-    width: 16px;
-    height: 15px;
-    margin-right: 8px;
-    border: 2px solid var(--main-black-color);
-    border-radius: 15%;
-}
-.checkbox-modal:checked + .checkbox-label::before{
-    background-image: url('../images/icons/icon-check.svg');
-    background-size: cover;
-
-    border: var(--accent-color-blue);
-}
-.checkbox-modal:focus + .checkbox-label::before {
-    
-    border: 1px solid #212121;
-}
-
 .policy-link {
     color: var(--accent-color-blue);
 }
-
-
 .submit-btn {
     display: block;
     margin: 0 auto;
@@ -193,10 +189,11 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 250ms var(--main-timing-function);
-}
-.submit-btn:hover,
-.submit-btn:focus {
-    outline: none;
-    background-color: var(--extra-blue);
 
+        &:hover,
+        &:focus {
+            outline: none;
+            background-color: var(--extra-blue);
+        
+        }
 }

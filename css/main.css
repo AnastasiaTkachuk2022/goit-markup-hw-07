@@ -79,21 +79,39 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  transition: background-color 250ms var(--main-timing-function);
 }
 
 .social-icon {
-  fill: var(--icon-color);
   transition: fill 250ms var(--main-timing-function);
 }
 
-.social-link:hover,
-.social-link:focus {
+.social-icon_theme-light {
+  fill: var(--icon-color);
+  transition: fill 250ms var(--main-timing-function);
+}
+.social-link:hover .social-icon_theme-light {
+  fill: var(--accent-color-white);
+}
+
+.social-link_theme-light {
+  transition: background-color 250ms var(--main-timing-function);
+}
+
+.social-link_theme-light:hover,
+.social-link_theme-light:focus {
   background-color: var(--accent-color-blue);
 }
 
-.social-link:hover .social-icon {
+.social-icon_theme-dark {
   fill: var(--accent-color-white);
+}
+
+.social-link_theme-dark {
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 250ms var(--main-timing-function);
+}
+.social-link_theme-dark:hover, .social-link_theme-dark:focus {
+  background-color: var(--accent-color-blue);
 }
 
 .logo {
@@ -121,15 +139,10 @@ img {
   opacity: 1;
   transition: opacity 500ms var(--main-timing-function);
 }
-
 .backdrop.is-hidden {
   opacity: 0;
   visibility: 0;
   pointer-events: none;
-}
-
-.backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0);
 }
 
 .modal {
@@ -143,6 +156,9 @@ img {
   border-radius: 4px;
   transform: translate(-50%, -50%) scale(1);
   transition: transform 500ms var(--main-timing-function);
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
 }
 
 .modal-button {
@@ -168,7 +184,6 @@ img {
 }
 
 .form-modal {
-  /* position: relative; */
   padding: 40px;
 }
 
@@ -182,7 +197,6 @@ img {
 
 .contact-wrapper {
   position: relative;
-  /* width: 100%; */
   margin-bottom: 28px;
 }
 
@@ -192,6 +206,9 @@ img {
   left: 12px;
   transform: translateY(-50%);
   transition: fill 250ms var(--main-timing-function);
+}
+.input-modal:hover ~ .icon-contact-wrapper, .input-modal:focus ~ .icon-contact-wrapper {
+  fill: var(--accent-color-blue);
 }
 
 .input-modal {
@@ -204,20 +221,12 @@ img {
   cursor: pointer;
   transition: border 250ms var(--main-timing-function);
 }
-
-.input-modal:hover,
-.input-modal:focus {
+.input-modal:hover, .input-modal:focus {
   outline: none;
   border: 1px solid var(--accent-color-blue);
 }
 
-.input-modal:hover ~ .icon-contact-wrapper,
-.input-modal:focus ~ .icon-contact-wrapper {
-  fill: var(--accent-color-blue);
-}
-
 .label-modal {
-  /* display: block; */
   position: absolute;
   top: -18px;
   left: 0;
@@ -227,7 +236,6 @@ img {
   letter-spacing: 0.01em;
   color: var(--text-color);
 }
-
 .checkbox-modal + .label-modal {
   line-height: 1.71;
   letter-spacing: 0.03em;
@@ -249,9 +257,7 @@ img {
   border-radius: 4px;
   transition: border 250ms var(--main-timing-function);
 }
-
-.modal-comment:hover,
-.modal-comment:focus {
+.modal-comment:hover, .modal-comment:focus {
   outline: none;
   border: 1px solid var(--accent-color-blue);
 }
@@ -273,7 +279,6 @@ img {
   letter-spacing: 0.03em;
   color: var(--text-color);
 }
-
 .checkbox-label::before {
   display: inline-block;
   content: "";
@@ -283,13 +288,11 @@ img {
   border: 2px solid var(--main-black-color);
   border-radius: 15%;
 }
-
 .checkbox-modal:checked + .checkbox-label::before {
   background-image: url("../images/icons/icon-check.svg");
   background-size: cover;
   border: var(--accent-color-blue);
 }
-
 .checkbox-modal:focus + .checkbox-label::before {
   border: 1px solid #212121;
 }
@@ -315,9 +318,7 @@ img {
   cursor: pointer;
   transition: background-color 250ms var(--main-timing-function);
 }
-
-.submit-btn:hover,
-.submit-btn:focus {
+.submit-btn:hover, .submit-btn:focus {
   outline: none;
   background-color: var(--extra-blue);
 }
@@ -408,9 +409,7 @@ img {
   padding: 32px o;
   transition: color 250ms var(--main-timing-function);
 }
-
-.icon-link:hover,
-.icon-link:focus {
+.icon-link:hover, .icon-link:focus {
   color: var(--accent-color-blue);
 }
 
@@ -419,13 +418,10 @@ img {
   fill: var(--text-color);
   transition: fill 250ms var(--main-timing-function);
 }
-
-.icon-link:hover .contact-icon {
+.contact-icon:hover, .contact-icon:focus {
   fill: var(--accent-color-blue);
 }
-
-.contact-icon:hover,
-.contact-icon:focus {
+.icon-link:hover .contact-icon {
   fill: var(--accent-color-blue);
 }
 
@@ -437,7 +433,6 @@ img {
   text-align: center;
   background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url("../images/hero-bg.jpg");
   background-size: cover;
-  /* background-position: center; */
   background-color: #C4C4C4;
 }
 
@@ -472,9 +467,7 @@ img {
   cursor: pointer;
   transition: color 250ms var(--main-timing-function), background-color 250ms var(--main-timing-function);
 }
-
-.button:hover,
-.button:focus {
+.button:hover, .button:focus {
   color: var(--accent-color-white);
   background-color: var(--extra-blue);
   cursor: pointer;
@@ -599,7 +592,7 @@ img {
   margin-left: 30px;
 }
 
-.team .text-wrapper {
+.team-wrapper {
   /* display: block */
   padding: 30px 0;
   border-radius: 0px 0px 4px 4px;
@@ -631,23 +624,9 @@ img {
   /* margin-bottom: 30px; */
 }
 
-.team-socials .social-list {
+.team__social-list {
   display: flex;
   justify-content: space-between;
-}
-
-.social-icon {
-  fill: var(--icon-color);
-  transition: fill 250ms var(--main-timing-function);
-}
-
-.social-link:hover,
-.social-link:focus {
-  background-color: var(--accent-color-blue);
-}
-
-.social-link:hover .social-icon {
-  fill: var(--accent-color-white);
 }
 
 .clients-title {
@@ -673,9 +652,7 @@ img {
   border-radius: 4px;
   transition: border 250ms var(--main-timing-function);
 }
-
-.clients-link:hover,
-.clients-link:focus {
+.clients-link:hover, .clients-link:focus {
   border: 1px solid var(--accent-color-blue);
 }
 
@@ -683,7 +660,6 @@ img {
   fill: var(--icon-color);
   transition: fill 250ms var(--main-timing-function);
 }
-
 .clients-link:hover .clients-icon {
   fill: var(--accent-color-blue);
 }
@@ -719,18 +695,16 @@ img {
   letter-spacing: 0.03em;
   transition: color 250ms var(--main-timing-function);
 }
-
-.address .link:hover,
-.address .link:focus {
+.address-link:hover, .address-link:focus {
   color: var(--accent-color-blue);
+}
+
+.address-link-font-white {
+  color: var(--accent-color-white);
 }
 
 .address-item:not(:last-child) {
   margin-bottom: 9px;
-}
-
-.address-item .location {
-  color: var(--accent-color-white);
 }
 
 .footer-socials {
@@ -749,20 +723,6 @@ img {
 .footer-socials .social-list {
   display: flex;
   justify-content: space-between;
-}
-
-.footer-socials .social-link {
-  background-color: rgba(255, 255, 255, 0.1);
-  transition: background-color 250ms var(--main-timing-function);
-}
-
-.footer-socials .social-icon {
-  fill: var(--accent-color-white);
-}
-
-.footer-socials .social-link:hover,
-.footer-socials .social-link:focus {
-  background-color: var(--accent-color-blue);
 }
 
 .subscribe-wrapper {
@@ -793,7 +753,6 @@ img {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
 }
-
 .subscribe-input:focus {
   color: var(--accent-color-white);
 }
@@ -850,9 +809,7 @@ img {
   background-color: var(--bg-light);
   transition: color 250ms var(--main-timing-function), background-color 250ms var(--main-timing-function);
 }
-
-.gallery-button:hover,
-.gallery-button:focus {
+.gallery-button:hover, .gallery-button:focus {
   color: var(--accent-color-white);
   background-color: var(--accent-color-blue);
 }
@@ -875,9 +832,7 @@ img {
   display: block;
   transition: box-shadow 250ms var(--main-timing-function);
 }
-
-.portfolio-link:hover,
-.portfolio-link:focus {
+.portfolio-link:hover, .portfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
   cursor: pointer;
   opacity: 1;
@@ -898,9 +853,7 @@ img {
   transform: translateY(100%);
   transition: transform 250ms var(--main-timing-function);
 }
-
-.portfolio-link:hover .image-overlay,
-.portfolio-link:focus .image-overlay {
+.portfolio-link:hover .image-overlay, .portfolio-link:focus .image-overlay {
   transform: translateY(0);
 }
 

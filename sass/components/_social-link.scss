@@ -5,16 +5,38 @@
     width: 44px;
     height: 44px; 
     border-radius: 50%;
-    transition:  background-color 250ms var(--main-timing-function);
+   
+        
 }
 .social-icon {
-    fill: var(--icon-color);
     transition:  fill 250ms var(--main-timing-function);
 }
-.social-link:hover,
-.social-link:focus {
+.social-icon_theme-light {
+    fill: var(--icon-color);
+    transition:  fill 250ms var(--main-timing-function);
+        .social-link:hover & {
+            fill: var(--accent-color-white);
+        }
+}
+.social-link_theme-light {
+    transition:  background-color 250ms var(--main-timing-function);
+}
+.social-link_theme-light:hover,
+.social-link_theme-light:focus {
     background-color: var(--accent-color-blue);    
 }
-.social-link:hover .social-icon {
+
+.social-icon_theme-dark {
     fill: var(--accent-color-white);
 }
+.social-link_theme-dark {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 250ms var(--main-timing-function);
+        &:hover,
+        &:focus {
+            background-color: var(--accent-color-blue);
+        }
+}
+
+
+
