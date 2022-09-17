@@ -1,7 +1,5 @@
 .gallery-list {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @extend %justify;
     margin-bottom: 50px;
 }
 .gallery-link:not(:last-child) {

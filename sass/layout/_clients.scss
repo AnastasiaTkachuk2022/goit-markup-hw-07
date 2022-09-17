@@ -10,9 +10,7 @@
     justify-content: space-between;
 }
 .clients-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend %justify;
     width: 170px;
     height: 92px;
     border: 1px solid var(--icon-color);

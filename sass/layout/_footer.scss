@@ -1,5 +1,5 @@
 
-.footer .container {
+.footer__container {
     display: flex;
     align-items: baseline;
 }
@@ -14,9 +14,7 @@
 .logo-wrapper {
     margin-bottom: 20px;
 }
-.footer .part-logo {
-    color: var(--accent-color-white);
-}
+
 .address-link {
     color: var(--address-color);
     font-weight: 400;
@@ -47,7 +45,7 @@
     margin-bottom: 20px;
     color: var(--accent-color-white);
 }
-.footer-socials .social-list {
+.fotter__socials {
     display: flex;
     justify-content: space-between;
 }
@@ -82,14 +80,11 @@
 }
 
 .subscribe-btn {
-    display: block;
+    @extend %justify;
     min-width: 200px;
     height: 50px;
     font-size: 16px;
     line-height: 1.88;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     letter-spacing: 0.06em;
     color: var(--accent-color-white);
